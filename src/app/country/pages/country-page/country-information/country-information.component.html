@@ -1,0 +1,62 @@
+<section class="mx-10 mb-5">
+  <h1 class="text-3xl">{{ country().name }}</h1>
+  <h1 class="text-xl font-thin mt-2">Capital: {{ country().capital }}</h1>
+</section>
+<hr/>
+
+<section class="shadow mx-5 mt-5 grid grid-cols-4 gap-4">
+  <div class="stat place-items-center text-xs sm:text-sm lg:text-base p-2 sm:p-4">
+    <div class="stat-title text-xs sm:text-sm lg:text-lg">Superficie total (km²)</div>
+    <div class="stat-value text-sm sm:text-base lg:text-2xl">{{ country().area | number }}</div>
+    <div class="stat-desc text-xs sm:text-sm lg:text-base">{{ currentYear() }}</div>
+  </div>
+
+  <div class="stat place-items-center text-xs sm:text-sm lg:text-base p-2 sm:p-4">
+    <div class="stat-title text-xs sm:text-sm lg:text-lg">Continente</div>
+    <div class="stat-value text-sm sm:text-base lg:text-2xl text-secondary">{{ country().continents }}</div>
+    <div class="stat-desc text-xs sm:text-sm lg:text-base text-secondary">{{ country().region }}</div>
+  </div>
+
+  <div class="stat place-items-center text-xs sm:text-sm lg:text-base p-2 sm:p-4">
+    <div class="stat-title text-xs sm:text-sm lg:text-lg">Lenguaje</div>
+    <div class="stat-value text-sm sm:text-base lg:text-2xl">{{ country().languages }}</div>
+    <div class="stat-desc text-xs sm:text-sm lg:text-base">{{ country().region }}</div>
+  </div>
+
+  <div class="stat place-items-center text-xs sm:text-sm lg:text-base p-2 sm:p-4">
+    <div class="stat-title text-xs sm:text-sm lg:text-lg">Moneda</div>
+    <div class="stat-value text-sm sm:text-base lg:text-2xl text-secondary">{{ country().currency }}</div>
+    <div class="stat-desc text-xs sm:text-sm lg:text-base text-secondary">{{ country().region }}</div>
+  </div>
+</section>
+
+
+
+
+<div class="stat place-items-center text-center p-2 sm:p-4">
+  <div class="stat-title text-xs sm:text-sm lg:text-lg">Mapa</div>
+  <div class="stat-value text-sm sm:text-base lg:text-2xl">
+    <a
+      [href]="country().maps.googleMaps"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-blue-600 hover:underline"
+    >
+      Ver ubicación en Google Maps
+    </a>
+  </div>
+</div>
+
+
+
+<section class="diff aspect-16/9" tabindex="0">
+  <div class="diff-item-1" role="img" tabindex="0">
+    <img [alt]="country().name" [src]="country().flagSvg" />
+  </div>
+  <div class="diff-item-2" role="img">
+    <img class="blur brightness75"
+    [alt]="country().name"
+    [src]="country().flagSvg" />
+  </div>
+  <div class="diff-resizer"></div>
+</section>
